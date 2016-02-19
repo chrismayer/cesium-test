@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Cesium Terrain</title>
+    <script src="node_modules/cesium/Build/Cesium/Cesium.js"></script>
+    <style>
+      @import url(node_modules/cesium/Build/Cesium/Widgets/widgets.css);
+      #cesiumContainer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        overflow: hidden;
+        padding: 0;
+        font-family: sans-serif;
+      }
+
+      html {
+        height: 100%;
+      }
+
+      body {
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+        height: 100%;
+      }
+    </style>
+  </head>
+<body>
+  <div id="cesiumContainer"></div>
+  <script>
+
+    var viewer = new Cesium.Viewer('cesiumContainer', {
+        baseLayerPicker : false
+    });
+    //  array of all image layers of our globe
+    var imageryLayers = viewer.scene.imageryLayers;
+    // add an WMS layer
+    var osmWms = imageryLayers.addImageryProvider(new Cesium.WebMapServiceImageryProvider({
+        url : 'http://ows.terrestris.de/osm-gray/service',
+        layers: 'OSM-WMS',
+        maximumLevel : 8,
+        credit : 'OSM-WMS by terrestris GmbH & Co. KG, data © OpenStreetMap contributors'
+    }));
+    // add a WMTS layer
+    var blackMarble = imageryLayers.addImageryProvider(new Cesium.TileMapServiceImageryProvider({
+        url : '//cesiumjs.org/tilesets/imagery/blackmarble',
+        maximumLevel : 8,
+        credit : 'Black Marble imagery courtesy NASA Earth Observatory'
+    }));
+    // set opacity of WMTS, so WMS shines through
+    // (0.0 is transparent, 1.0 is opaque)
+    blackMarble.alpha = 0.5;
+
+  </script>
+</body>
+</html>
