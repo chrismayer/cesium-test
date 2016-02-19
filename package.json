@@ -1,7 +1,7 @@
 {
   "name": "cesium-test",
   "version": "1.0.0",
-  "description": "First steps with Cesium",
+  "description": "Experiments with Cesium (open-source JavaScript library for world-class 3D globes and maps)",
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
@@ -11,6 +11,10 @@
     "cesium",
     "3D"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chrismayer/cesium-test.git"
+  },
   "author": "meggsimum, Christian Mayer",
   "license": "Apache-2.0",
   "devDependencies": {
