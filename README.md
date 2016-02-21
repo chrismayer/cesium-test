@@ -17,4 +17,4 @@ To serve the application with the built-in debug server, run
 $ npm start
 ```
 
-Navigate to [http://localhost:8888/](http://localhost:8888/) to play with the Hello World demo application.
+Navigate to [http://localhost:8888/](http://localhost:8888/) to get an overview of the existing demo apps.
